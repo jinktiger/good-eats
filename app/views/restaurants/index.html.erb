@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="large-12">
+    <h1>Restaurants</h1>
+
+    <%- if !@restaurants.empty? -%>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th></th>
+        </tr>
+
+        <%- @restaurants.each do |restaurant| -%>
+          <tr>
+            <td><%= restaurant.name %></td>
+            <td>
+              <%= link_to 'View details',
+               restaurant_path(restaurant.id)%> 
+            </td>
+
+          </tr>
+        <%- end -%>
+      </table>
+
+    <%- end -%>
+    <tr>
+      <%= link_to 'Add Restaurant',
+        new_restaurant_path %>
+    </tr>
+  </div>
+</div>
